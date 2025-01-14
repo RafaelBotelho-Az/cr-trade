@@ -37,7 +37,9 @@
                     <form method="POST" action="{% url 'produto:removefromcart' %}">
                         {% csrf_token %}
                         <input type="hidden" name="produto_id" value="{{ produto_id }}">
-                        <button type="submit">Remover</button>
+                        <button class='tddd'type="submit">
+                            <img class="btn-lixeira" src="{% static 'global/img/lixeira.svg' %}" alt="lixeira">
+                        </button>
                     </form>
                 </td>
             </tr>
@@ -46,8 +48,8 @@
     </table>
     <p>Total: R$ <span id="cart-total">{{ total|floatformat:2 }}</span></p>
     <div class="cart-btn">
-        <a class='finalizar'href="{% url 'produto:finalizar' %}">Finalizar Compra</a>
         <a class='continuar'href="{% url 'produto:lista' %}">Continuar Comprando</a>
+        <a class='finalizar'href="{% url 'produto:finalizar' %}">Finalizar Compra</a>
     </div>
 </div>
 {% endblock  %}

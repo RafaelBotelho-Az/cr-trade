@@ -77,31 +77,41 @@ nav .menu li {
 }
 
 nav .menu li a {
+    width: 90px;
+    height: 40px;
+    background-color: var(--clr-dark-orange);
     color: var(--clr-darker-grey);
-    text-decoration: none;
     font-size: var(--smaller-font-size);
-    padding: 8px 12px;
-    border: 2px solid transparent;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    background-color: var(--clr-dark-orange);
     font-weight: bold;
-}
-
-nav .menu li .cadastrar:hover {
-    background-color: var(--clr-dark-orange);
-    color: var(--clr-darker-grey);
-}
-
-nav .menu li a:hover {
-    background-color: var(--clr-darker-grey);
-    color: var(--clr-dark-orange);
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 2px solid var(--clr-darker-grey);
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 nav .menu .cadastrar {
     background-color: var(--clr-darker-grey);
     color: var(--clr-dark-orange);
+    border: 2px solid var(--clr-dark-orange);
 }
+
+nav .menu li .cadastrar:hover {
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-darker-grey);
+    border: 2px solid var(--clr-darker-grey);
+}
+
+nav .menu li a:hover {
+    background-color: var(--clr-darker-grey);
+    color: var(--clr-dark-orange);
+    border: 2px solid var(--clr-dark-orange);
+}
+
 
 /*-----------------------------------------GRID-----------------------------------------*/
 
@@ -192,7 +202,8 @@ nav .menu .cadastrar {
 .item-buy button {
     background-color: var(--clr-dark-orange);
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    border: 2px solid var(--clr-darker-grey);
     padding: 12px 32px;
     text-align: center;
     text-decoration: none;
@@ -209,7 +220,8 @@ nav .menu .cadastrar {
 
 .item-buy button:hover{
     background-color: var(--clr-darker-grey);
-    color: var(--clr-white)
+    color: var(--clr-white);
+    border: 2px solid var(--clr-dark-orange);
 }
 
 .item-buy .btn-carrinho {
@@ -302,22 +314,22 @@ nav .menu .cadastrar {
     gap: 10px;
 }
 
-.cart-container td button {
+.cart-container .btn-update-cart {
     width: 30px;
     height: 30px;
     background-color: var(--clr-dark-orange);
-    color: var(--clr-white);
-    border: none;
-    border-radius: 3px;
+    color: var(--clr-darker-grey);
+    border: 2px solid var(--clr-darker-grey); 
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.cart-container td button:hover{
+.cart-container .btn-update-cart:hover{
     background-color: var(--clr-darker-grey);
-    color: var(--clr-white)
+    color: var(--clr-dark-orange);
+    border: 2px solid var(--clr-dark-orange);
 }
 
 .cart-container img {
@@ -336,33 +348,66 @@ nav .menu .cadastrar {
 .cart-btn{
     text-align: center;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .continuar {
+    width: 130px;
+    height: 40px;
     background-color: var(--clr-dark-orange);
-    color: var(--clr-white);
-    border: none;
-    border-radius: 3px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: solid 2px var(--clr-darker-grey);
+    color: var(--clr-darker-grey);
+    font-size: var(--smaller-font-size);
     font-weight: bold;
-    font-size: var(--small-font-size);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 5px;
-    margin: 0 20px 0 20px;
+    text-decoration: none;
+    line-height: 0.9;
+}
+
+.continuar:hover {
+    background-color: var(--clr-darker-grey);
+    color: var(--clr-dark-orange);
+    border: 2px solid var(--clr-dark-orange);
 }
 
 .finalizar {
-    width: 100px;
+    width: 130px;
+    height: 40px;
     background-color: var(--clr-darker-grey);
-    color: var(--clr-white);
-    border: none;
-    border-radius: 3px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: solid 2px var(--clr-dark-orange);
+    color: var(--clr-dark-orange);
+    font-size: var(--smaller-font-size);
     font-weight: bold;
-    font-size: var(--small-font-size);
+    text-decoration: none;
+}
+
+.finalizar:hover {
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-darker-grey);
+    border: 2px solid var(--clr-darker-grey);
+}
+
+.btn-lixeira {
+    width: 25px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-lixeira:hover {
+    filter: brightness(1.4);
     cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 5px;
-    margin: 0 20px 0 20px;
+}
+
+.tddd {
+    border: none;
+    background-color: var(--clr-medium-grey);
 }
