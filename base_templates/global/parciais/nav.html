@@ -1,9 +1,9 @@
 <nav>
     <div class="logo">
-        <a href="#">Logo</a>
+        <a href="{% url "produto:lista" %}">Logo</a>
     </div>
     <ul class="menu">
-        <li><a href="#">Carrinho</a></li>
+        <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
         <li><a href="#">Login</a></li>
         <li><a class='cadastrar' href="#">Cadastrar</a></li>
     </ul>

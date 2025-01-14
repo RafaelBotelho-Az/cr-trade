@@ -262,3 +262,107 @@ nav .menu .cadastrar {
     color: rgb(143, 143, 143);
 }
 
+/*---------------------------------------CARRINHO---------------------------------------*/
+
+.cart-container {
+    display: block;
+    margin: 200px;
+    background-color: var(--clr-medium-grey);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.cart-container h2 {
+    text-align: center;
+    color: #D35400;
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+}
+
+.cart-container table {
+    color: var(--clr-white);
+    padding: 10px 0 10px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.cart-container table thead {
+    font-size: var(--small-font-size);
+    font-weight: bold;
+}
+
+.cart-container table tbody {
+    text-align: center;
+}
+
+.cart-container td:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-container td button {
+    width: 30px;
+    height: 30px;
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-container td button:hover{
+    background-color: var(--clr-darker-grey);
+    color: var(--clr-white)
+}
+
+.cart-container img {
+    display: block;
+    max-width: 50px;
+    height: auto;
+}
+
+.cart-container p {
+    text-align: center;
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    color:var(--clr-white);
+}
+
+.cart-btn{
+    text-align: center;
+    padding: 10px;
+}
+
+.continuar {
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--small-font-size);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 5px;
+    margin: 0 20px 0 20px;
+}
+
+.finalizar {
+    width: 100px;
+    background-color: var(--clr-darker-grey);
+    color: var(--clr-white);
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--small-font-size);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 5px;
+    margin: 0 20px 0 20px;
+}

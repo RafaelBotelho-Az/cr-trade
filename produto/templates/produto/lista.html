@@ -1,1 +1,34 @@
 {% extends "global/base.html" %}
+{% load omfilters %}
+{% load static %}
+{% block conteudo %}
+<div class='master-grid'>
+    <div  class='grid-container'>
+        {% for produto in produtos %}
+        <div class="grid-item"> 
+            <div class="item-icon"> 
+                <img class="item-img" src="{{ produto.imagem.url }}" alt="imagem">
+            </div>
+            <div class="item-content">
+                <div class="item-description">{{produto.nome}}</div>
+                <div class="btn-multiplay"></div>
+                <div class="item-prices">
+                    <span class="price-value">{{produto.preco_marketing_promo | formata_preco}}</span>
+                    <span class="price-promo-value">{{produto.preco_marketing | formata_preco}}</span>
+                </div>
+            </div>
+            <div class="item-buy">
+            <form method="POST" action="{% url 'produto:addtocart' %}">
+                {% csrf_token %}
+                <input type="hidden" name="produto_id" value="{{ produto.id }}">
+                <button type="submit">
+                    <img class="btn-carrinho" src="{% static 'global/img/cart.svg' %}" alt="carrinho">
+                    COMPRAR!
+                </button>
+            </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}
