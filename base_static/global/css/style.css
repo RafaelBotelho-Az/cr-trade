@@ -203,7 +203,6 @@ nav .menu li a:hover {
     background-color: var(--clr-dark-orange);
     border: none;
     border-radius: 6px;
-    border: 2px solid var(--clr-darker-grey);
     padding: 12px 32px;
     text-align: center;
     text-decoration: none;
@@ -411,3 +410,115 @@ nav .menu li a:hover {
     border: none;
     background-color: var(--clr-medium-grey);
 }
+
+/*---------------------------------------FORMS---------------------------------------*/
+
+.form-container {
+    background-color: var(--clr-medium-grey);
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  
+  .form-wrapper h2 {
+    color: var(--clr-dark-orange);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+  
+  }
+  
+  .form-wrapper {
+    max-width: 30rem;
+    margin: 0 auto;
+    padding-top: 125px;
+  }
+  
+  @media (min-width: 600px) {
+    .form-wrapper {
+      max-width: 50rem;
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .form-wrapper {
+      max-width: 60rem;
+    }
+  }
+  
+  @media (min-width: 1300px) {
+    .form-wrapper {
+      max-width: 70rem;
+    }
+  }
+  
+  .form-content {
+    margin: 1.5rem auto;
+    padding: 0px 20px 0px 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    border-radius: 4px;
+  }
+  
+  .form-group input {
+    border-radius: 4px;
+    height: 32px;
+    border-style: unset;
+    padding: 5px;
+  }
+  
+  .form-group textarea {
+    border-radius: 4px;
+    height: 64px;
+    border-bottom-style: inset;
+    padding: 5px;
+    resize: none;
+  }
+
+  .form-group label {
+    color: var(--clr-dark-orange);
+    font-size: var(--smaller-font-size);
+    font-weight: bold;
+  }
+    
+  .form-group button {
+    border-radius: 4px;
+    height: 32px;
+    border-style: unset;
+    color: var(--clr-dark-orange);
+    background-color: var(--clr-darker-grey);
+    font-size: var(--small-font-size);
+    font-weight: bold;
+    border: solid 2px var(--clr-dark-orange);
+    transition: transform 0.1s ease;
+  }
+  
+  .form-group button:hover {
+    cursor: pointer;
+    color: var(--clr-darker-grey);
+    background-color: var(--clr-dark-orange);
+    border: solid 2px var(--clr-darker-grey);
+  }
+
+  .form-group span {
+    width: 100%;
+  }
+
+  .errorlist {
+    list-style: none;
+    font-size: var(--smallest-font-size);
+    color: rgb(255, 74, 74)
+  }
+  .errorlist.nonfield {
+    color: inherit;
+  }
+  
+  .help-text, .help-text ~ ul {
+    font-size: 11px;
+    list-style: none;
+    color: var(--clr-white);
+  }
+  

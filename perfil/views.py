@@ -1,20 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 from django.views import View
 from django.http import HttpResponse
+from .forms import RegisterForm
 
-class Criar(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Criar')
 
-class Atualizar(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Atualizar')
+def createUser(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print('Registrado com sucesso!')
+            return redirect('produto:lista')
+    else:
+        form = RegisterForm()
 
-class Login(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Login')
 
-class Logout(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Logout')
+    return render(
+        request,
+        'perfil/create-user.html',
+        {
+            'form': form,
+            'title': 'Cadastro',
+        }
+    )

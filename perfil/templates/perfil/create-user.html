@@ -1,0 +1,38 @@
+{% extends "global/base.html" %}
+
+{% block conteudo %}
+
+<div class="form-wrapper">
+    <div class="form-container">
+        <h2>Faça aqui o seu Cadastro!</h2>
+        
+        <form 
+            action="{% url 'perfil:register' %}"
+            method="POST"
+        >
+            {% csrf_token %}
+
+            <div class="form-content">
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {{ field.errors }}
+
+                        {% if field.help_text %}
+                            <p class="help-text">{{ field.help_text }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        
+            <div class="form-content">
+                <div class="form-group">
+                    <button class="btn" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock conteudo %}
