@@ -1,3 +1,5 @@
+// Atualizar carrinho
+
 document.addEventListener('DOMContentLoaded', () => {
     const updateCartButtons = document.querySelectorAll('.btn-update-cart');
 
@@ -58,3 +60,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return cookieValue;
     }
 });
+
+
+// Mostrar o modal
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginLink = document.getElementById('login-modal');
+    const modal = document.querySelector('.modal');
+
+    loginLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.style.display = 'flex';
+    });
+});
+
+// Mostrar o modal quando login invalido
+
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+const loginError = getQueryParam('login_error');
+if (loginError === 'true') {
+    const modal = document.querySelector('.modal');
+    modal.style.display = 'flex'; // Mostra o modal
+}

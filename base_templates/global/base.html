@@ -10,6 +10,9 @@
 </head>
 <body>
     {% include "global/parciais/nav.html" %}
+    {% include "global/parciais/login-modal.html" %}
+
+
     {% block conteudo %}{% endblock  %}
 
     <script> const updateCartUrl = "{% url 'produto:updatecart' %}";</script>
