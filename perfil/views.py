@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.urls import reverse
 from .forms import RegisterForm
 
 
 def createUser(request):
+    loginForm = AuthenticationForm(prefix='register')
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -23,12 +24,13 @@ def createUser(request):
         'perfil/create-user.html',
         {
             'form': form,
+            'loginForm': loginForm,
             'title': 'Cadastro',
         }
     )
 
 def loginView(request):
-    form = AuthenticationForm()
+    form = AuthenticationForm(prefix='login')
 
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -43,4 +45,10 @@ def loginView(request):
             print('Login inválido!')
             return redirect(f"{reverse('produto:lista')}?login_error=true")
 
+    return redirect('produto:lista')
+
+
+def logoutView(request):
+    auth.logout(request)
+    print('Deslogado com sucesso!')
     return redirect('produto:lista')

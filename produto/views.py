@@ -12,7 +12,7 @@ class ListaProdutos(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = AuthenticationForm()
+        context['loginForm'] = AuthenticationForm()
         return context
 
 class DetalheProdutos(View):
@@ -85,7 +85,8 @@ class Cart(View):
         for produto_id, item in carrinho.items():
             item['subtotal'] = item['preco'] * item['quantidade']
 
-        return render(request, 'produto/cart.html', {'carrinho': carrinho, 'total': total})
+        form = AuthenticationForm()
+        return render(request, 'produto/cart.html', {'carrinho': carrinho, 'total': total, 'loginForm': form})
 
 class Finalizar(View):
     def get(self, *args, **kwargs):

@@ -1,51 +1,43 @@
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-        {% if message == 'show_login_modal' %}
-            <div class="modal is-visible">
-        {% endif %}
-        <p class="message {{ message.tags }}">{{ message }}</p>
-    {% endfor %}
-</div>
-{% endif %}
 
-<div class="modal {% if 'show_login_modal' in messages %}is-visible{% endif %}">
-<div class="form-container">
-    <h2>Digite os seus dados de acesso!</h2>
-    <form 
-        action="{% url 'perfil:login' %}"
-        method="POST"
-    >
-        {% csrf_token %}
 
-        <div class="form-content">
-            {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                    {{ field.errors }}
+<div class="modal">
+    <div id="close-modal"class="close-btn">✖</div>
+    <div class="login-container">
+        <h2>Digite os seus dados de acesso!</h2>
+        <form 
+            action="{% url 'perfil:login' %}"
+            method="POST"
+        >
+            {% csrf_token %}
 
-                    {% if field.help_text %}
-                        <p class="help-text">{{ field.help_text }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
+            <div class="login-content">
+                {% for field in loginForm %}
+                    <div class="login-form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {{ field.errors }}
 
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}
-                    <p class="message {{ message.tags }}">{{ message }}</p>
+                        {% if field.help_text %}
+                            <p class="help-text">{{ field.help_text }}</p>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
-        {% endif %}
 
-        <div class="form-content">
-            <div class="form-group">
-                <button class="btn" type="submit">Entrar</button>
+            {% if messages %}
+                <div class="login-messages">
+                    {% for message in messages %}
+                        <p class="message {{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="btn-container">
+                <div class="login-group">
+                    <button class="btn" type="submit">Entrar</button>
+                </div>
+                <p class='reg'>Ainda não possui uma conta? <a href="{% url 'perfil:register' %}">Cadastre-se</a></p>
             </div>
-            <p class='reg'>Ainda não possui uma conta? <a href="{% url 'produto:lista' %}">Cadastre-se</a></p>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>

@@ -1,10 +1,24 @@
+{% load static %}
 <nav>
     <div class="logo">
         <a href="{% url "produto:lista" %}">Logo</a>
     </div>
-    <ul class="menu">
-        <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
-        <li><a id='login-modal' href=" ">Login</a></li>
-        <li><a class='cadastrar' href="{% url "perfil:register" %}">Cadastrar</a></li>
-    </ul>
+    {% if user.is_authenticated %}
+        <ul class="menu">
+            <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
+            <a href=""><img src="{% static "global/img/def_profile_img.jpg" %}" alt="Imagem de perfil" class="profile-image" id="profile-img"></a>
+        </ul>
+        <div class="dropdown-menu" id="profile-dropdown">
+            <ul>
+                <li><a href="">Meus Pedidos</a></li>
+                <li><a href="{% url "perfil:logout" %}">Deslogar</a></li>
+            </ul>
+        </div>
+    {% else %}
+        <ul class="menu">
+            <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
+            <li><a id='login-modal' href=" ">Login</a></li>
+            <li><a class='cadastrar' href="{% url "perfil:register" %}">Cadastrar</a></li>
+        </ul>
+    {% endif %}
 </nav>

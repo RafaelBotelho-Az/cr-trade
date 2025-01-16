@@ -66,12 +66,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginLink = document.getElementById('login-modal');
+    const closeModal = document.getElementById('close-modal');
     const modal = document.querySelector('.modal');
+    const dropdownProfile = document.getElementById('profile-img');
+    const closeDropdown = document.querySelector('.dropdown-menu');
 
-    loginLink.addEventListener('click', (event) => {
-        event.preventDefault();
-        modal.style.display = 'flex';
-    });
+    if (loginLink && modal) {
+        loginLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            modal.style.display = 'block';
+        });
+    }
+
+    if (closeModal && modal) {
+        closeModal.addEventListener('click', (event) => {
+            event.preventDefault();
+            modal.style.display = 'none';
+        });
+    }
+
+    if (dropdownProfile && closeDropdown) {
+        dropdownProfile.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeDropdown.classList.toggle('visible');
+        });
+    }
 });
 
 // Mostrar o modal quando login invalido
@@ -84,5 +103,5 @@ function getQueryParam(param) {
 const loginError = getQueryParam('login_error');
 if (loginError === 'true') {
     const modal = document.querySelector('.modal');
-    modal.style.display = 'flex'; // Mostra o modal
+    modal.style.display = 'block';
 }
