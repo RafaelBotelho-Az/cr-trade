@@ -37,7 +37,6 @@
     'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.5;
     background: var(--clr-light-grey);
-    position: relative;
   }
 
 
@@ -109,7 +108,17 @@ nav .menu li a:hover {
     border: 2px solid var(--clr-dark-orange);
 }
 
-.menu img {
+.img-carrinho {
+    width: 25px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.cart-count {
+    font-size: var(--small-font-size);
+}
+
+.profile-image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -321,12 +330,35 @@ nav .menu li a:hover {
 /*---------------------------------------CARRINHO---------------------------------------*/
 
 .cart-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: block;
-    margin: 200px;
     background-color: var(--clr-medium-grey);
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
+    width: 350px;
 }
+
+@media (min-width: 600px) {
+    .cart-container {
+        width: 450px;
+    }
+}
+
+@media (min-width: 800px) {
+    .cart-container {
+        width: 600px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cart-container {
+        width: 700px;
+    }
+}
+
 
 .cart-container h2 {
     text-align: center;
@@ -340,7 +372,13 @@ nav .menu li a:hover {
     padding: 10px 0 10px 0;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
+}
+
+@media (min-width: 800px) {
+    .cart-container table {
+        width: 90%;
+    }
 }
 
 .cart-container table thead {

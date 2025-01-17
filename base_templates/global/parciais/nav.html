@@ -5,7 +5,16 @@
     </div>
     {% if user.is_authenticated %}
         <ul class="menu">
-            <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
+            <li>
+                <a href="{% url "produto:cart" %}">
+                    <img class="img-carrinho" src="{% static 'global/img/cart.svg' %}" alt="carrinho">
+                    {% if cart_item_count > 0 %}
+                        <span class="cart-count">( {{ cart_item_count }} )</span>
+                    {% else %}
+                        <span class="cart-count">( 0 )</span>
+                    {% endif %}
+                </a>
+            </li>
             <a href=""><img src="{% static "global/img/def_profile_img.jpg" %}" alt="Imagem de perfil" class="profile-image" id="profile-img"></a>
         </ul>
         <div class="dropdown-menu" id="profile-dropdown">
@@ -16,7 +25,16 @@
         </div>
     {% else %}
         <ul class="menu">
-            <li><a href="{% url "produto:cart" %}">Carrinho</a></li>
+            <li>
+                <a href="{% url "produto:cart" %}">
+                    <img class="img-carrinho" src="{% static 'global/img/cart.svg' %}" alt="carrinho">
+                    {% if cart_item_count > 0 %}
+                        <span class="cart-count">( {{ cart_item_count }} )</span>
+                    {% else %}
+                        <span class="cart-count">( 0 )</span>
+                    {% endif %}
+                </a>
+            </li>
             <li><a id='login-modal' href=" ">Login</a></li>
             <li><a class='cadastrar' href="{% url "perfil:register" %}">Cadastrar</a></li>
         </ul>
