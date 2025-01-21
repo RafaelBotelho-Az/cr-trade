@@ -13,7 +13,7 @@ def createUser(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            print('Registrado com sucesso!')
+            messages.success(request, 'Registrado com sucesso!')
             return redirect('produto:lista')
     else:
         form = RegisterForm()
@@ -38,11 +38,10 @@ def loginView(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            print('Logado com sucesso!')
+            messages.success(request, 'Usuário logado com sucesso!')
             return redirect('produto:lista')
         else:
             messages.error(request, 'Usuário ou senha inválidos!')
-            print('Login inválido!')
             return redirect(f"{reverse('produto:lista')}?login_error=true")
 
     return redirect('produto:lista')

@@ -49,7 +49,7 @@
     <p>Total: R$ <span id="cart-total">{{ total|floatformat:2 }}</span></p>
     <div class="cart-btn">
         <a class='continuar'href="{% url 'produto:lista' %}">Continuar Comprando</a>
-        <a class='finalizar'href="{% url 'produto:finalizar' %}">Finalizar Compra</a>
+        <a class='finalizar'href="{% url 'pedido:criar' %}">Finalizar Compra</a>
     </div>
 </div>
 {% endblock  %}

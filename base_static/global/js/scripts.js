@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Mostrar o modal
+// Modal e Dropdown
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginLink = document.getElementById('login-modal');
@@ -105,3 +105,21 @@ if (loginError === 'true') {
     const modal = document.querySelector('.modal');
     modal.style.display = 'block';
 }
+
+
+// Django messages
+
+document.addEventListener('DOMContentLoaded', () => {
+    const displayTime = 4000;
+    const messages = document.getElementById('messages');
+
+    if (messages) {
+        setTimeout(() => {
+            messages.style.transition = 'opacity 0.5s ease';
+            messages.style.opacity = '0';
+
+            setTimeout(() => messages.remove(), 500);
+        }, displayTime);
+    }
+});
+

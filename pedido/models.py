@@ -37,7 +37,6 @@ class ItemPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name='itens')
     produto = models.ForeignKey(Produto, on_delete=models.PROTECT)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
-    preco_promo = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
     quantidade = models.PositiveIntegerField()
     imagem = models.URLField(max_length=2000, blank=True, null=True)
 
@@ -45,7 +44,7 @@ class ItemPedido(models.Model):
         return f'Item do {self.pedido.numero}: {self.produto.nome}'
 
     def get_total_item(self):
-        return self.quantidade * (self.preco_promo if self.preco_promo > 0 else self.preco)
+        return self.quantidade * self.preco
 
     class Meta:
         verbose_name = 'Item do pedido'

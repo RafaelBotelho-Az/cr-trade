@@ -1,0 +1,15 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block conteudo %}
+    <h1>Detalhes do Pedido</h1>
+    <p>Número do Pedido: {{ pedido.numero }}</p>
+    <p>Status: {{ pedido.get_status_display }}</p>
+    <p>Total: R$ {{ pedido.total }}</p>
+
+    <h2>Itens do Pedido</h2>
+    <ul>
+        {% for item in pedido.itens.all %}
+            <li>{{ item.produto.nome }} - {{ item.quantidade }} x R$ {{ item.preco }} = R$ {{ item.get_total_item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock  %}

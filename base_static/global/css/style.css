@@ -124,8 +124,8 @@ nav .menu li a:hover {
     border-radius: 50%;
     object-fit: cover;
     margin-left: 10px;
+    cursor: pointer;
 }
-
 
 .dropdown-menu {
     display: none;
@@ -736,4 +736,51 @@ nav .menu li a:hover {
 .login-messages {
     color: red;
     font-weight: bold;
+}
+
+/*---------------------------------------MESSAGES---------------------------------------*/
+
+#messages {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1005;
+    width: 40%;
+    max-width: 200px; 
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: var(--smaller-font-size);
+    font-weight: bold;
+}
+.alert.error {
+    background: #ca5751da;
+    border: 2px solid #FF5E57;
+    color: #FF5E57;
+}
+
+.alert.success {
+    background: #51ca69da;
+    border: 2px solid #57FF85;
+    color: #57FF85;
+}
+
+.alert.warning {
+    background: #caa751da;
+    border: 2px solid #FFD157;
+    color: #FFD157;
+}
+
+.alert.info {
+    background: #5174cada;
+    border: 2px solid #5785FF;
+    color: #5785FF;
 }

@@ -25,12 +25,14 @@
             </div>
 
             {% if messages %}
-                <div class="login-messages">
-                    {% for message in messages %}
+            <div class="login-messages">
+                {% for message in messages %}
+                    {% if 'error' in message.tags %}
                         <p class="message {{ message.tags }}">{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
 
             <div class="btn-container">
                 <div class="login-group">
