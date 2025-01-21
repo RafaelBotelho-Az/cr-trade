@@ -1,15 +1,29 @@
 {% extends "global/base.html" %}
 {% load static %}
 {% block conteudo %}
-    <h1>Detalhes do Pedido</h1>
-    <p>Número do Pedido: {{ pedido.numero }}</p>
-    <p>Status: {{ pedido.get_status_display }}</p>
-    <p>Total: R$ {{ pedido.total }}</p>
+<div class="main-shifted">
+    <div class="pedido-container">
+        <div class="pedido-content">
+            <h2>Itens do Pedido</h2>
+            <ul>
+                {% for item in pedido.itens.all %}
+                    <li>
+                        <img src="{{ item.produto.imagem.url }}" alt="{{ item.produto.nome }}" width="25">
+                        {{ item.produto.nome }} - {{ item.quantidade }} - R$ {{ item.get_total_item }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="pedido-detail">
+            <h1>Detalhes do Pedido</h1>
+            <p>Pedido: {{ pedido.numero }}</p>
+            <p>Status: {{ pedido.get_status_display }}</p>  
+            <h3>Total: R$ {{ pedido.total }}</h3>
+        </div>
+    </div>
+    <div class="info-container">
 
-    <h2>Itens do Pedido</h2>
-    <ul>
-        {% for item in pedido.itens.all %}
-            <li>{{ item.produto.nome }} - {{ item.quantidade }} x R$ {{ item.preco }} = R$ {{ item.get_total_item }}</li>
-        {% endfor %}
-    </ul>
+    </div>
+</div>
+
 {% endblock  %}

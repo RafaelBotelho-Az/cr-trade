@@ -784,3 +784,68 @@ nav .menu li a:hover {
     border: 2px solid #5785FF;
     color: #5785FF;
 }
+
+/*------------------------------------DETALHE PEDIDO--------------------------------------*/
+
+
+.main-shifted {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .main-shifted {
+        flex-direction: column;
+    }
+
+    .info-container, .pedido-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.pedido-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--clr-medium-grey);
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.info-container {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--clr-medium-grey);
+    margin: 10px;
+    border-radius: 6px;
+}
+
+.pedido-content {
+    flex: 1;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--clr-light-grey);
+    border-radius: 6px;
+}
+
+.pedido-content ul li {
+    list-style-type: none;
+}
+
+.pedido-detail {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--clr-light-grey);
+    border-radius: 6px;
+}
+
