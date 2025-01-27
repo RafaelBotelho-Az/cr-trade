@@ -19,6 +19,7 @@ class Pedido(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='C')
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
+    in_game_name = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f'Pedido N. {self.numero} - {self.get_status_display()}'

@@ -819,6 +819,153 @@ nav .menu li a:hover {
     border-radius: 6px;
 }
 
+.pedido-content {
+    flex: 1;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--clr-light-grey);
+    border-radius: 2px;
+}
+
+.pedido-content ul li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: solid 2px var(--clr-medium-grey);
+}
+
+.pedido-content ul li:last-child {
+    border-bottom: none;
+}
+
+.pedido-content ul li img {
+    margin-right: 10px;
+}
+
+.pedido-content ul li p {
+    margin: 0 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.pedido-content ul li p {
+    font-size: var(--smaller-font-size);
+    color: var(--clr-white);
+}
+
+#tpreco {
+    font-weight: bold;
+    color: rgb(68, 187, 53);
+}
+
+.pedido-content ul {
+    padding: 0;
+}
+
+.pedido-content h1 {
+    text-align: center;
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    color: var(--clr-dark-orange);
+}
+
+.pedido-detail {
+    flex: 1;
+    padding: 10px 20px 10px 20px;
+    box-sizing: border-box;
+    background-color: var(--clr-light-grey);
+    border-radius: 2px;
+}
+
+.pedido-detail h1 {
+    text-align: center;
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    color: var(--clr-dark-orange);
+}
+
+.detalhes {
+    padding: 10px;
+    border-bottom: solid 2px var(--clr-medium-grey);
+    margin-bottom: 30px;
+}
+
+.detalhes li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--smaller-font-size);
+    color: var(--clr-white);
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.payment-options label {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+    position: absolute;
+    top: 22%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.payment-options img {
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px;
+    z-index: 1;
+}
+
+.btn-pagar {
+    background-color: var(--clr-dark-orange);
+    border: 2px solid var(--clr-dark-orange);
+    border-radius: 6px;
+    padding: 12px 32px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: var(--small-font-size);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: var(--clr-white);
+    width: 100%;
+    margin: 15px 0 15px 0;
+    gap: 10px;
+}
+
+.btn-pagar:hover{
+    background-color: var(--clr-darker-grey);
+    color: var(--clr-white);
+    border: 2px solid var(--clr-dark-orange);
+}
+
+.btn-pagar img {
+    display: inline-block;
+    width: 35px;
+    justify-content: center;
+}
+
+
+
+
 .info-container {
     flex: 1;
     padding: 10px;
@@ -828,24 +975,33 @@ nav .menu li a:hover {
     border-radius: 6px;
 }
 
-.pedido-content {
-    flex: 1;
-    margin-bottom: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: var(--clr-light-grey);
-    border-radius: 6px;
+.info-container h1{
+    text-align: center;
+    font-size: var(--medium-font-size);
+    font-weight: bold;
+    color: var(--clr-dark-orange);
 }
 
-.pedido-content ul li {
-    list-style-type: none;
+.info {
+    padding: 20px;
+    list-style: none;
 }
 
-.pedido-detail {
-    flex: 1;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: var(--clr-light-grey);
-    border-radius: 6px;
+.info li {
+    padding: 5px;
 }
 
+.info li h2{
+    color: var(--clr-dark-orange);
+    font-size: var(--small-font-size);
+    font-weight: bold;
+}
+
+.info li p{
+    color: var(--clr-white);
+    font-size: var(--smallest-font-size);
+}
+
+.info li p a{
+    color: var(--clr-light-orange);
+}

@@ -54,4 +54,20 @@ def detalhe_pedido(request, pk):
         messages.error(request, "Você não tem permissão para acessar este pedido.")
         return redirect('produto:lista')
 
+    if request.method == 'POST':
+        forma_pagamento = request.POST.get('forma_pagamento')
+        in_game_name = request.POST.get('in_game_name', '').strip()
+
+        if not forma_pagamento:
+            messages.error(request, "Por favor, selecione uma forma de pagamento.")
+            return redirect('pedido:detalhe', pk=pedido.pk)
+
+        if in_game_name:
+            pedido.in_game_name = in_game_name
+            pedido.save()
+            messages.success(request, "Success!")
+        else:
+            messages.error(request, "O nome in-game não pode estar vazio.")
+            return redirect('pedido:detalhe', pk=pedido.pk)
+
     return render(request, 'pedido/detalhe.html', {'pedido': pedido})

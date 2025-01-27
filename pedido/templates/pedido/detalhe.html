@@ -4,25 +4,132 @@
 <div class="main-shifted">
     <div class="pedido-container">
         <div class="pedido-content">
-            <h2>Itens do Pedido</h2>
+            <h1>Itens do Pedido</h1>
             <ul>
                 {% for item in pedido.itens.all %}
                     <li>
-                        <img src="{{ item.produto.imagem.url }}" alt="{{ item.produto.nome }}" width="25">
-                        {{ item.produto.nome }} - {{ item.quantidade }} - R$ {{ item.get_total_item }}
+                        <img src="{{ item.produto.imagem.url }}" alt="{{ item.produto.nome }}" width="35">
+                        <p>
+                            {{ item.produto.nome }}
+                        </p>
+                        <p>
+                            {{ item.quantidade }}
+                        </p>
+                        <p id='tpreco'>
+                            R$ {{ item.get_total_item }}
+                        </p>
                     </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="pedido-detail">
             <h1>Detalhes do Pedido</h1>
-            <p>Pedido: {{ pedido.numero }}</p>
-            <p>Status: {{ pedido.get_status_display }}</p>  
-            <h3>Total: R$ {{ pedido.total }}</h3>
+
+            <ul class="detalhes">
+                <li>
+                    <p>Pedido:</p>
+                    <p>{{ pedido.numero }}</p>
+                </li>
+                <li>
+                    <p>Status:</p>
+                    <p>{{ pedido.get_status_display }}</p>
+                </li>
+                <li>
+                    <p>Total:</p>
+                    <p id='tpreco' >R$ {{ pedido.total }}</p>
+                </li>
+            </ul>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="payment-options">
+                    <label>
+                        <input type="radio" name="forma_pagamento" value="mercado_pago">
+                        <img src="{% static "global/img/mercado_pago.png" %}" alt="Mercado Pago" height="40">
+                    </label>
+                    <label>
+                        <input type="radio" name="forma_pagamento" value="pix">
+                        <img src="{% static "global/img/pix.png" %}" alt="PIX" height="40">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="in_game_name">IGN:</label>
+                    <input type="text" id="in_game_name" name="in_game_name" placeholder="Digite seu nome in-game">
+                </div>
+                <button type="submit" class="btn-pagar">
+                    <img class="btn-cash" src="{% static 'global/img/cash.png' %}" alt="cash">
+                    Pagar
+                </button>
+            </form>
         </div>
     </div>
     <div class="info-container">
+        <h1>Informações importantes</h1>
+        <ul class="info">
 
+            <li>
+                <h2>
+                    IGN.
+                </h2>
+                <p>
+                    Antes de finalizar o pagamento, informe corretamente seu nome dentro do jogo
+                    para que possamos entrar em contato e realizar a transação.
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Informei o IGN errado e agora?
+                </h2>
+                <p>
+                    Não se preocupe, basta entrar em contato conosco pelo <a href="">Discord</a> ou <a href="">WhatsApp</a>,
+                    informar o número do pedido e o IGN correto.
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Como é feita a entrega?
+                </h2>
+                <p>
+                    A entrega de currency é realizada por um dos nossos colaboradores, entraremos em contato 
+                    através do IGN informado, solicitaremos um pedido de grupo e logo depois realizamos o trade.
+                    É importante que o cliente sempre passe um item simbólico para nós para que o trade seja 
+                    visto de forma transparente nos "Logs" da desenvolvedora.
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Existe algum tipo de risco para minha conta?
+                </h2>
+                <p>
+                    A Venda de items e serviços por dinheiro real não é permitido pela maioria das desenvolvedoras e publicadoras
+                    de jogos online, apesar de tudo, essa pratica sempre existiu e sempre existirá por conta da demanda.
+                    Trabalhamos de forma a mitigar qualquer possibilidade de comprometer tanto nossas contas quanto as contas de nossos
+                    clientes, no entando o risco existe, apesar de baixo.
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Em quanto tempo meu pedido é entregue?
+                </h2>
+                <p>
+                    O prazo máximo para entrega dos pedidos é de até 1 hora de segunda à sábado das 8:00h às 22:00h, porém 
+                    a grande maioria dos pedidos são entregues em questão de minutos.
+                </p>
+            </li>
+
+            <li>
+                <h2>
+                    Atendimento personalizado.
+                </h2>
+                <p>
+                    Atendemos e tiramos dúvidas através do nosso <a href="">Discord</a> e <a href="">WhatsApp</a>.
+                </p>
+            </li>
+
+        </ul>
     </div>
 </div>
 
