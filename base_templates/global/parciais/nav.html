@@ -39,4 +39,38 @@
             <li><a class='cadastrar' href="{% url "perfil:register" %}">Cadastrar</a></li>
         </ul>
     {% endif %}
+    <div class="nav-split">
+        <ul class="menu-split">
+            <li>
+                <a href="">
+                <img class="menu-img" src="{% static 'global/img/menu.svg' %}" alt="menu">
+                Jogos
+                </a>
+            </li>
+            <li>
+                <a href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+                <img class="menu-img" src="{% static 'global/img/discord.svg' %}" alt="discord">
+                Discord
+                </a>
+            </li>
+            <li>
+                <a href="{% url "produto:lista" %}">
+                <img class="menu-img" src="{% static 'global/img/home.svg' %}" alt="home">
+                Home
+                </a>
+            </li>
+            <li>
+                <a href="https://web.whatsapp.com" target="_blank" rel="noopener noreferrer">
+                <img class="menu-img" src="{% static 'global/img/wpp.svg' %}" alt="whastapp">
+                WhatsApp
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <img class="menu-img" src="{% static 'global/img/cart2.svg' %}" alt="cart">
+                Venda para nós!
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
