@@ -1,0 +1,38 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block conteudo %}
+<div class="container">
+    <div class="c-header">
+        <div>
+            <h1>
+                Sua Loja de Gamecoins!
+            </h1>
+            <h2>
+                Desde 2021 trazendo gamecoins para você! Na nossa loja, 
+                você encontra gamecoins e serviços para diversos jogos com segurança, 
+                rapidez e os melhores preços. 
+                Garanta suas gamecoins agora e eleve sua experiência no jogo!
+            </h2>
+        </div>
+        <img class="bau" src="{% static 'global/img/bau.webp' %}" alt="bau">
+    </div>
+</div>
+<div class="im-div">
+    <h2> Jogos que atendemos!</h2>
+</div>
+<div class="carousel-container">
+    <div class="carousel-wrapper">
+        <button class="arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+        <div class="carousel">
+            {% for jogo in jogos %}
+                <div class="carousel-item" onclick="redirectToProduct('{{ jogo.id }}')">
+                    <img class="jogo-img" src="{{ jogo.imagem.url }}" alt="jogo-img">
+                    <p>{{ jogo.nome }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <button class="arrow right" onclick="scrollCarousel(1)">&#10095;</button>
+    </div>
+</div>
+
+{% endblock  %}

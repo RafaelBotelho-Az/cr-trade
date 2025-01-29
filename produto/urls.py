@@ -1,16 +1,15 @@
 from django.urls import path
 from . import views
+from .views import index
 
 
 app_name = 'produto'
 
 urlpatterns = [
-    path('', views.ListaProdutos.as_view(), name='lista'),
-    path('<slug>', views.DetalheProdutos.as_view(), name='detalhe'),
+    path('', index, name='index'),
+    path('lista/<int:jogo_id>/', views.ListaProdutos.as_view(), name='lista'),
     path('addtocart/', views.AddtoCart.as_view(), name='addtocart'),
     path('removefromcart/', views.RemoveFromCart.as_view(), name='removefromcart'),
     path('updatecart/', views.UpdateCart.as_view(), name='updatecart'),
     path('cart/', views.Cart.as_view(), name='cart'),
-    path('finalizar/', views.Finalizar.as_view(), name='finalizar'),
-
 ]

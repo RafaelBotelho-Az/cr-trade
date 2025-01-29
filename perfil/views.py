@@ -39,15 +39,14 @@ def loginView(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, 'Usuário logado com sucesso!')
-            return redirect('produto:lista')
+            return redirect('produto:index')
         else:
             messages.error(request, 'Usuário ou senha inválidos!')
-            return redirect(f"{reverse('produto:lista')}?login_error=true")
+            return redirect(f"{reverse('produto:index')}?login_error=true")
 
-    return redirect('produto:lista')
+    return redirect('produto:index')
 
 
 def logoutView(request):
     auth.logout(request)
-    print('Deslogado com sucesso!')
-    return redirect('produto:lista')
+    return redirect('produto:index')

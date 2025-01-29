@@ -123,3 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// carousel
+
+function scrollCarousel(direction) {
+    const carousel = document.querySelector(".carousel");
+    const itemWidth = document.querySelector(".carousel-item").offsetWidth + 30;
+    carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
+}
+
+function redirectToProduct(jogoId) {
+    window.location.href = `/lista/${jogoId}/`;
+}

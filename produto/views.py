@@ -3,7 +3,25 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.list import ListView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
-from .models import Produto
+from .models import Produto, Categoria
+
+
+
+def index(request):
+    jogos = Categoria.objects.all()
+    form = AuthenticationForm()
+
+    context = {
+        'jogos': jogos,
+        'loginForm': form
+        }
+
+    return render(
+            request,
+            'produto/index.html',
+            context
+        )
+
 
 class ListaProdutos(ListView):
     model = Produto
@@ -14,10 +32,6 @@ class ListaProdutos(ListView):
         context = super().get_context_data(**kwargs)
         context['loginForm'] = AuthenticationForm()
         return context
-
-class DetalheProdutos(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('DetalheProdutos')
 
 class AddtoCart(View):
     def post(self, request):
@@ -87,7 +101,3 @@ class Cart(View):
 
         form = AuthenticationForm()
         return render(request, 'produto/cart.html', {'carrinho': carrinho, 'total': total, 'loginForm': form})
-
-class Finalizar(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Finalizar')

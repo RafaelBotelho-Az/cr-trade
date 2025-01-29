@@ -1,7 +1,7 @@
 {% load static %}
 <nav>
     <div class="logo">
-        <a href="{% url "produto:lista" %}">Logo</a>
+        <a href="{% url "produto:index" %}">Logo</a>
     </div>
     {% if user.is_authenticated %}
         <ul class="menu">
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li>
-                <a href="{% url "produto:lista" %}">
+                <a href="{% url "produto:index" %}">
                 <img class="menu-img" src="{% static 'global/img/home.svg' %}" alt="home">
                 Home
                 </a>
