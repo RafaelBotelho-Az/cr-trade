@@ -68,8 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginLink = document.getElementById('login-modal');
     const closeModal = document.getElementById('close-modal');
     const modal = document.querySelector('.modal');
+    
     const dropdownProfile = document.getElementById('profile-img');
     const closeDropdown = document.querySelector('.dropdown-menu');
+
+    const dropdownCat = document.getElementById('cat-dropdown');
+    const closeDropdownCat = document.querySelector('.dropdown-cat');
+
 
     if (loginLink && modal) {
         loginLink.addEventListener('click', (event) => {
@@ -89,6 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdownProfile.addEventListener('click', (event) => {
             event.preventDefault();
             closeDropdown.classList.toggle('visible');
+        });
+    }
+
+    if (dropdownCat && closeDropdownCat) {
+        dropdownCat.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeDropdownCat.classList.toggle('visible');
         });
     }
 });

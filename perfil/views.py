@@ -14,7 +14,7 @@ def createUser(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Registrado com sucesso!')
-            return redirect('produto:lista')
+            return redirect('produto:index')
     else:
         form = RegisterForm()
 

@@ -19,8 +19,28 @@
         </ul>
         <div class="dropdown-menu" id="profile-dropdown">
             <ul>
-                <li><a href="">Meus Pedidos</a></li>
-                <li><a href="{% url "perfil:logout" %}">Deslogar</a></li>
+                <li>
+                    <img src="{% static "global/img/email.svg" %}" alt="email-icon" class="drop-icon">
+                    <p>{{user.email}}</p>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="{% static "global/img/order.svg" %}" alt="order-icon" class="drop-icon">
+                        Meus Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="{% static "global/img/pass.svg" %}" alt="password-icon" class="drop-icon">
+                        Trocar Senha
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "perfil:logout" %}">
+                        <img src="{% static "global/img/logout.svg" %}" alt="logout-icon" class="drop-icon">
+                        Deslogar
+                    </a>
+                </li>
             </ul>
         </div>
     {% else %}
@@ -42,8 +62,8 @@
     <div class="nav-split">
         <ul class="menu-split">
             <li>
-                <a href="">
-                <img class="menu-img" src="{% static 'global/img/menu.svg' %}" alt="menu">
+                <a href="" id="cat-dropdown">
+                <img class="menu-img" src="{% static 'global/img/menu.svg' %}" alt="menu" >
                 Jogos
                 </a>
             </li>
@@ -71,6 +91,18 @@
                 Venda para nós!
                 </a>
             </li>
+        </ul>
+    </div>
+    <div class="dropdown-cat">
+        <ul>
+            {% for jogo in jogos %}
+                <li onclick="redirectToProduct('{{ jogo.id }}')">
+                    <img class="cat-img" src="{% static 'global/img/cat.svg' %}" alt="categoria">
+                    <p>
+                        {{jogo.nome}}
+                    </p>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </nav>

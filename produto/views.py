@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
@@ -28,17 +29,29 @@ class ListaProdutos(ListView):
     template_name = 'produto/lista.html'
     context_object_name = 'produtos'
 
+    def get_queryset(self):
+        categoria_id = self.kwargs.get('jogo_id')
+        return Produto.objects.filter(categoria_id=categoria_id)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['loginForm'] = AuthenticationForm()
+        context['categoria'] = get_object_or_404(Categoria, id=self.kwargs.get('jogo_id'))
+        context['jogos'] = Categoria.objects.all()
         return context
 
 class AddtoCart(View):
     def post(self, request):
         produto_id = request.POST.get('produto_id')
         produto = get_object_or_404(Produto, id=produto_id)
-
         carrinho = request.session.get('carrinho', {})
+
+        if carrinho:
+            primeira_categoria_id = list(carrinho.values())[0].get('categoria_id')
+
+            if produto.categoria.id != primeira_categoria_id:
+                messages.error(request, "Você só pode adicionar produtos da mesma categoria ao carrinho.")
+                return redirect('produto:cart')
 
         if produto_id in carrinho:
             carrinho[produto_id]['quantidade'] += 1
@@ -47,7 +60,8 @@ class AddtoCart(View):
                 'nome': produto.nome,
                 'preco': produto.preco_marketing_promo if produto.preco_marketing_promo else produto.preco_marketing,
                 'quantidade': 1,
-                'imagem': produto.imagem.url if produto.imagem else ''
+                'imagem': produto.imagem.url if produto.imagem else '',
+                'categoria_id': produto.categoria.id
             }
 
         request.session['carrinho'] = carrinho
@@ -99,5 +113,19 @@ class Cart(View):
         for produto_id, item in carrinho.items():
             item['subtotal'] = item['preco'] * item['quantidade']
 
+        ultima_categoria_id = None
+        if carrinho:
+            ultima_categoria_id = list(carrinho.values())[-1].get('categoria_id', None)
+
         form = AuthenticationForm()
-        return render(request, 'produto/cart.html', {'carrinho': carrinho, 'total': total, 'loginForm': form})
+        jogos = Categoria.objects.all()
+        return render(
+            request, 
+                'produto/cart.html', {
+                'carrinho': carrinho, 
+                'total': total, 
+                'loginForm': form, 
+                'ultima_categoria_id': ultima_categoria_id,
+                'jogos': jogos
+                }
+        )

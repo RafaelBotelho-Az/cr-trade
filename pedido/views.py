@@ -4,6 +4,7 @@ from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import Pedido, ItemPedido
+from produto.models import Categoria
 
 
 def criar_pedido(request):
@@ -69,5 +70,7 @@ def detalhe_pedido(request, pk):
         else:
             messages.error(request, "O nome in-game não pode estar vazio.")
             return redirect('pedido:detalhe', pk=pedido.pk)
+        
+    Jogos = Categoria.objects.all()
 
-    return render(request, 'pedido/detalhe.html', {'pedido': pedido})
+    return render(request, 'pedido/detalhe.html', {'pedido': pedido, 'jogos': Jogos})

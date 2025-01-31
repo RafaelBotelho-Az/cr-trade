@@ -48,8 +48,12 @@
     </table>
     <p>Total: R$ <span id="cart-total">{{ total|floatformat:2 }}</span></p>
     <div class="cart-btn">
-        <a class='continuar'href="{% url 'produto:lista' %}">Continuar Comprando</a>
-        <a class='finalizar'href="{% url 'pedido:criar' %}">Finalizar Compra</a>
+        {% if ultima_categoria_id %}
+            <a class='continuar' href="{% url 'produto:lista' ultima_categoria_id %}">Continuar Comprando</a>
+        {% else %}
+            <a class='continuar' href="{% url 'produto:index' %}">Continuar Comprando</a>
+        {% endif %}
+        <a class='finalizar' href="{% url 'pedido:criar' %}">Finalizar Compra</a>
     </div>
 </div>
 {% endblock  %}
