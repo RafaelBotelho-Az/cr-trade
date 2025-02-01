@@ -2,6 +2,34 @@
 {% load omfilters %}
 {% load static %}
 {% block conteudo %}
+
+<div class="area-container">
+    <ul class="area">
+        <li>
+            <a href="{% url "produto:index" %}">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="">
+                {{categoria}}
+            </a>
+        </li>
+        <li>
+            <a href="">
+                Moedas
+            </a>
+        </li>
+    </ul>
+    <div class="type-filter">
+        <ul>
+            <li>Moedas</li>
+            <li>Serviços</li>
+            <li>Gold</li>
+            <li>Outros</li>
+        </ul>
+    </div>
+</div>
 <div class='master-grid'>
     <div  class='grid-container'>
         {% for produto in produtos %}
