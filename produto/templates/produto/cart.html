@@ -1,59 +1,64 @@
 {% extends "global/base.html" %}
 {% load static %}
 {% block conteudo %}
-<div class="cart-container">
-    <h2>Seu Carrinho</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Sub Total</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="cart-items">
-            {% for produto_id, item in carrinho.items %}
-            <tr data-produto-id="{{ produto_id }}">
-                <td>
-                    <img src="{{ item.imagem }}" alt="{{ item.nome }}" width="50">
-                    {{ item.nome }}
-                </td>
-                <td>R$ {{ item.preco|floatformat:2 }}</td>
-                <td>
-                    <button class="btn-update-cart" data-produto-id="{{ produto_id }}" data-acao="decrementar">-</button>
-                </td>
-                <td>
-                    <span class="quantidade">{{ item.quantidade }}</span>
-                </td>
-                <td>
-                    <button class="btn-update-cart" data-produto-id="{{ produto_id }}" data-acao="incrementar">+</button>
-                </td>
-                <td>R$ <span class="subtotal">{{ item.subtotal|floatformat:2 }}</span></td>
-                <td>
-                    <form method="POST" action="{% url 'produto:removefromcart' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="produto_id" value="{{ produto_id }}">
-                        <button class='tddd'type="submit">
-                            <img class="btn-lixeira" src="{% static 'global/img/lixeira.svg' %}" alt="lixeira">
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p>Total: R$ <span id="cart-total">{{ total|floatformat:2 }}</span></p>
-    <div class="cart-btn">
-        {% if ultima_categoria_id %}
-            <a class='continuar' href="{% url 'produto:lista' ultima_categoria_id %}">Continuar Comprando</a>
-        {% else %}
-            <a class='continuar' href="{% url 'produto:index' %}">Continuar Comprando</a>
-        {% endif %}
-        <a class='finalizar' href="{% url 'pedido:criar' %}">Finalizar Compra</a>
+<div class="cart-c">
+    <div class="cart-container">
+        <h2>Seu Carrinho</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Sub Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                {% for produto_id, item in carrinho.items %}
+                <tr data-produto-id="{{ produto_id }}">
+                    <td>
+                        <img class="cart-item-img" src="{{ item.imagem }}" alt="{{ item.nome }}" width="50">
+                    </td>
+                    <td>
+                        {{ item.nome }}
+                    </td>
+                    <td>R$ {{ item.preco|floatformat:2 }}</td>
+                    <td>
+                        <button class="btn-update-cart" data-produto-id="{{ produto_id }}" data-acao="decrementar">-</button>
+                    </td>
+                    <td>
+                        <span class="quantidade">{{ item.quantidade }}</span>
+                    </td>
+                    <td>
+                        <button class="btn-update-cart" data-produto-id="{{ produto_id }}" data-acao="incrementar">+</button>
+                    </td>
+                    <td>R$ <span class="subtotal">{{ item.subtotal|floatformat:2 }}</span></td>
+                    <td>
+                        <form method="POST" action="{% url 'produto:removefromcart' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="produto_id" value="{{ produto_id }}">
+                            <button class='tddd'type="submit">
+                                <img class="btn-lixeira" src="{% static 'global/img/lixeira.svg' %}" alt="lixeira">
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Total: R$ <span id="cart-total">{{ total|floatformat:2 }}</span></p>
+        <div class="cart-btn">
+            {% if ultima_categoria_id %}
+                <a class='continuar' href="{% url 'produto:lista' ultima_categoria_id %}">Continuar Comprando</a>
+            {% else %}
+                <a class='continuar' href="{% url 'produto:index' %}">Continuar Comprando</a>
+            {% endif %}
+            <a class='finalizar' href="{% url 'pedido:criar' %}">Finalizar Compra</a>
+        </div>
     </div>
 </div>
 {% endblock  %}

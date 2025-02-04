@@ -31,13 +31,33 @@ class ListaProdutos(ListView):
 
     def get_queryset(self):
         categoria_id = self.kwargs.get('jogo_id')
-        return Produto.objects.filter(categoria_id=categoria_id)
+        tipo = self.kwargs.get('tipo')
+        queryset = Produto.objects.filter(categoria_id=categoria_id)
+
+        if tipo == 'moedas':
+            queryset = queryset.filter(tipo='tipo1')
+        elif tipo == 'servicos':
+            queryset = queryset.filter(tipo='tipo2')
+        elif tipo == 'gold':
+            queryset = queryset.filter(tipo='tipo3')
+        elif tipo == 'outros':
+            queryset = queryset.filter(tipo='tipo4')
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['loginForm'] = AuthenticationForm()
         context['categoria'] = get_object_or_404(Categoria, id=self.kwargs.get('jogo_id'))
         context['jogos'] = Categoria.objects.all()
+        
+        tipo_escolhido = self.kwargs.get('tipo')
+
+        if tipo_escolhido:
+            context['tipo_selecionado'] = tipo_escolhido
+        else:
+            context['tipo_selecionado'] = 'Tudo'
+
         return context
 
 class AddtoCart(View):

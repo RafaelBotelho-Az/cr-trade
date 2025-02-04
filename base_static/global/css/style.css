@@ -76,10 +76,17 @@
     background-color: var(--clr-darker-grey);
     display: flex;
     align-items: center;
-    padding: 0 350px;
+    padding: 0 550px;
     z-index: 1000;
     box-shadow: 1px 5px 7px rgb(20, 20, 20);
 }
+
+@media (max-width: 1600px) {
+    .nav-split {
+        padding: 0 370px;
+    }
+}
+
 
 @media (max-width: 1200px) {
     .nav-split {
@@ -368,30 +375,36 @@ nav .menu li a:hover {
 /*-------------------------------------LISTA GRID-----------------------------------------*/
 
 .master-grid {
-    padding: 0 300px 0 300px;
+    padding: 0 300px;
 }
 
 @media (max-width: 1700px) {
     .master-grid {
-        padding: 0 150px 0 150px;
+        padding: 0 200px;
     }
 }
 
 @media (max-width: 1250px) {
     .master-grid {
-        padding: 0 100px 0 100px;
+        padding: 0 150px;
     }
 }
 
 @media (max-width: 800px) {
     .master-grid {
-        padding: 0 50px 0 50px;
+        padding: 0 50px;
     }
 }
 
 @media (max-width: 600px) {
     .master-grid {
-        padding: 0 10px 0 10px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .master-grid {
+        padding: 0 3px;
     }
 }
 
@@ -399,9 +412,19 @@ nav .menu li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 10px;
+    padding: 5px;
     margin-top: 20px;
 }
+
+@media (max-width: 400px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 5px;
+        margin-top: 20px;
+    }
+}
+
 
 .grid-item {
     position: relative;
@@ -412,16 +435,28 @@ nav .menu li a:hover {
     overflow: hidden;
     padding: 0;
     margin: 0;
-    height: 400px;
+    height: 350px;
     background-color: var(--clr-darker-grey);
+}
+
+@media (max-width: 400px) {
+    .grid-item  {
+        height: 320px;
+    }
 }
 
 .item-icon {
     width: 100%;
-    height: 210px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .item-icon  {
+        height: 130px;
+    }
 }
 
 .item-content {
@@ -440,8 +475,8 @@ nav .menu li a:hover {
 }
 
 .item-img {
-    max-width: 65%;
-    max-height: 65%;
+    max-width: 45%;
+    max-height: 45%;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -469,6 +504,13 @@ nav .menu li a:hover {
     color: var(--clr-white)
 }
 
+
+@media (max-width: 400px) {
+    .item-buy button  {
+        padding: 12px 20px;
+    }
+}
+
 .item-buy button:hover{
     background-color: var(--clr-darker-grey);
     color: var(--clr-white);
@@ -483,46 +525,56 @@ nav .menu li a:hover {
 
 .item-description {
     width: 100%;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 65px;
+    display: block;
+    text-align: center;
     padding: 5px;
     font-size: var(--small-font-size);
     font-weight: bold;
     color: var(--clr-white);
 }
 
-.btn-multiplay{
-    width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 400px) {
+    .item-description {
+        font-size: var(--smallest-font-size);
+    }
 }
 
 .item-prices{
     width: 100%;
-    height: 55px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     gap: 10px;
     padding: 5px;
 }
 
-.price-value{
+.price-value {
     font-size: var(--medium-font-size);
     font-weight: bold;
     color: rgb(68, 187, 53);
 }
 
-.price-promo-value{
+@media (max-width: 400px) {
+    .price-value {
+        font-size: var(--small-font-size)
+    }
+}
+
+.price-promo-value {
     font-size: var(--small-font-size);
     font-weight: bold;
     text-decoration: line-through;
     text-decoration-thickness: 2px;
     color: rgb(143, 143, 143);
+}
+
+@media (max-width: 400px) {
+    .price-promo-value {
+        font-size: var(--smallest-font-size)
+    }
 }
 
 
@@ -798,11 +850,13 @@ nav .menu li a:hover {
 
 /*---------------------------------------CARRINHO---------------------------------------*/
 
+.cart-c {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+}
+
 .cart-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: block;
     background-color: var(--clr-medium-grey);
     border-radius: 8px;
@@ -859,12 +913,6 @@ nav .menu li a:hover {
     text-align: center;
 }
 
-.cart-container td:first-child {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .cart-container .btn-update-cart {
     width: 30px;
     height: 30px;
@@ -877,16 +925,21 @@ nav .menu li a:hover {
     border: unset;
 }
 
+.quantidade {
+    padding: 0 10px;
+}
+
 .cart-container .btn-update-cart:hover{
     background-color: var(--clr-darker-grey);
     color: var(--clr-white);
     border: 2px solid var(--clr-dark-orange);
 }
 
-.cart-container img {
+.cart-item-img {
     display: block;
-    max-width: 50px;
-    height: auto;
+    width: auto;
+    height: 45px;
+    margin: 0 auto;
 }
 
 .cart-container p {
@@ -948,7 +1001,7 @@ nav .menu li a:hover {
 }
 
 .btn-lixeira {
-    width: 25px;
+    width: 20px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -1493,7 +1546,7 @@ nav .menu li a:hover {
 }
 
 .area {
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     list-style: none;
 }
 
@@ -1516,21 +1569,27 @@ nav .menu li a:hover {
 
 .type-filter {
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .type-filter ul {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     list-style: none;
+    overflow: hidden;
+}
+
+@media (min-width: 900px) {
+    .type-filter ul{
+        gap: 30px;
+    }
 }
 
 .type-filter ul li {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    font-size: var(--smaller-font-size);
-    color: var(--clr-white);
     background-color: var(--clr-darker-grey);
     border: solid 2px var(--clr-dark-orange);
     border-radius: 6px;
@@ -1540,4 +1599,23 @@ nav .menu li a:hover {
 .type-filter ul li:hover {
     cursor: pointer;
     background-color: var(--clr-light-grey);
+}
+
+.type-filter ul li a {
+    text-decoration: none;
+    font-size: var(--smallest-font-size);
+    font-weight: bold;
+    color: var(--clr-white);
+    text-align: center;
+    padding: 5px;
+    display: block;
+    width: 100%; 
+}
+
+.type-filter ul li.active {
+    background-color: var(--clr-dark-orange); 
+}
+
+.type-filter ul li.active:hover {
+    filter: brightness(110%);
 }

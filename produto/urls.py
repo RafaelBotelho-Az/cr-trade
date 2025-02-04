@@ -1,13 +1,14 @@
 from django.urls import path
 from . import views
-from .views import index
+from .views import index, ListaProdutos
 
 
 app_name = 'produto'
 
 urlpatterns = [
     path('', index, name='index'),
-    path('lista/<int:jogo_id>/', views.ListaProdutos.as_view(), name='lista'),
+    path('lista/<int:jogo_id>/', ListaProdutos.as_view(), name='lista'),
+    path('lista/<int:jogo_id>/<slug:tipo>/', ListaProdutos.as_view(), name='lista-filtrada'),
     path('addtocart/', views.AddtoCart.as_view(), name='addtocart'),
     path('removefromcart/', views.RemoveFromCart.as_view(), name='removefromcart'),
     path('updatecart/', views.UpdateCart.as_view(), name='updatecart'),

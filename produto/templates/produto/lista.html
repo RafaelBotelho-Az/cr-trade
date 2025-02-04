@@ -11,22 +11,36 @@
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="#">
                 {{categoria}}
             </a>
         </li>
         <li>
             <a href="">
-                Moedas
+                {{ tipo_selecionado|capfirst }}
             </a>
         </li>
     </ul>
     <div class="type-filter">
         <ul>
-            <li>Moedas</li>
-            <li>Serviços</li>
-            <li>Gold</li>
-            <li>Outros</li>
+            <li class="{% if tipo_selecionado == 'Tudo' %}active{% endif %}">
+                <a href="{% url 'produto:lista' jogo_id=categoria.id %}">Tudo</a>
+            </li>
+            <li class="{% if tipo_selecionado == 'moedas' %}active{% endif %}">
+                <a href="{% url 'produto:lista-filtrada' jogo_id=categoria.id tipo='moedas' %}">Moedas</a>
+            </li>
+    
+            <li class="{% if tipo_selecionado == 'servicos' %}active{% endif %}">
+                <a href="{% url 'produto:lista-filtrada' jogo_id=categoria.id tipo='servicos' %}">Serviços</a>
+            </li>
+    
+            <li class="{% if tipo_selecionado == 'gold' %}active{% endif %}">
+                <a href="{% url 'produto:lista-filtrada' jogo_id=categoria.id tipo='gold' %}">Gold</a>
+            </li>
+    
+            <li class="{% if tipo_selecionado == 'outros' %}active{% endif %}">
+                <a href="{% url 'produto:lista-filtrada' jogo_id=categoria.id tipo='outros' %}">Outros</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -39,7 +53,6 @@
             </div>
             <div class="item-content">
                 <div class="item-description">{{produto.nome}}</div>
-                <div class="btn-multiplay"></div>
                 <div class="item-prices">
                     <span class="price-value">{{produto.preco_marketing_promo | formata_preco}}</span>
                     <span class="price-promo-value">{{produto.preco_marketing | formata_preco}}</span>
