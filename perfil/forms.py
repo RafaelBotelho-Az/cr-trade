@@ -14,6 +14,15 @@ class RegisterForm(UserCreationForm):
             'email','username', 'password1', 'password2',
         )
 
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'placeholder': 'Digite seu nome de usuário'
+            }),
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'Digite seu email'
+            })
+        }
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields.pop('first_name', None)

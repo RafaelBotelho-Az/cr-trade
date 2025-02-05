@@ -3,9 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views import View
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from .models import Produto, Categoria
-
 
 
 def index(request):

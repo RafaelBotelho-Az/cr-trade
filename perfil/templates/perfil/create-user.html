@@ -18,14 +18,17 @@
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                         {{ field }}
                         {{ field.errors }}
-
-                        {% if field.help_text %}
-                            <p class="help-text">{{ field.help_text }}</p>
-                        {% endif %}
                     </div>
                 {% endfor %}
+
+                <div class="termos-container">
+                    <input type="checkbox" id="termos" name="termos" value="termos" required>
+                    <label class="termos-label" for="termos">
+                      Eu concordo com os <a href="#">Termos de serviço.</a>
+                    </label>
+                  </div>
             </div>
-        
+
             <div class="form-content">
                 <div class="form-group">
                     <button class="btn" type="submit">Enviar</button>

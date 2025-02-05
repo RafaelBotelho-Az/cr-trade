@@ -1,14 +1,23 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.core.exceptions import ValidationError
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
 from django.contrib import messages, auth
-from django.urls import reverse
+from allauth.account.views import LoginView
 from .forms import RegisterForm
+from produto.models import Categoria
+from django.urls import reverse
 
+
+class MyLoginView(LoginView):
+    def form_invalid(self, form):
+        messages.error(self.request, "Usuário ou senha inválidos!")
+
+        url_com_param = reverse('produto:index') + '?login_error=true'
+        return redirect(url_com_param)
 
 def createUser(request):
     loginForm = AuthenticationForm(prefix='register')
+    jogos = Categoria.objects.all()
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -25,27 +34,9 @@ def createUser(request):
         {
             'form': form,
             'loginForm': loginForm,
-            'title': 'Cadastro',
+            'jogos': jogos,
         }
     )
-
-def loginView(request):
-    form = AuthenticationForm(prefix='login')
-
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            messages.success(request, 'Usuário logado com sucesso!')
-            return redirect('produto:index')
-        else:
-            messages.error(request, 'Usuário ou senha inválidos!')
-            return redirect(f"{reverse('produto:index')}?login_error=true")
-
-    return redirect('produto:index')
-
 
 def logoutView(request):
     auth.logout(request)

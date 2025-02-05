@@ -1,0 +1,69 @@
+{% load socialaccount %}
+{% load i18n %}
+
+<div class="modal">
+    <div id="close-modal" class="close-btn">✖</div>
+    <div class="login-container">
+        <h2>Digite seus dados de acesso!</h2>
+
+        <form action="{% url 'account_login' %}" method="post">
+            {% csrf_token %}
+
+            <div class="login-messages">
+                {{ allauth_login_form.non_field_errors }}
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if 'error' in message.tags %}
+                            <p class="message {{ message.tags }}">{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="login-content">
+                <div class="login-form-group">
+                    <label for="{{ allauth_login_form.login.id_for_label }}">Usuário</label>
+                    {{ allauth_login_form.login }}
+                    <div class="field-error">
+                        {{ allauth_login_form.login.errors }}
+                    </div>
+                </div>
+
+                <div class="login-form-group">
+                    <label for="{{ allauth_login_form.password.id_for_label }}">Senha</label>
+                    {{ allauth_login_form.password }}
+                    <div class="field-error">
+                        {{ allauth_login_form.password.errors }}
+                    </div>
+                </div>
+
+
+                <div class="remember-me">
+                    {{ allauth_login_form.remember }}
+                    <label for="{{ allauth_login_form.remember.id_for_label }}">Lembrar-me</label>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" type="submit">Entrar</button>
+            </div>
+            <div class="extra-container">
+                <p class="reg">
+                    Ainda não possui uma conta?
+                    <a href="{% url 'account_signup' %}">Cadastre-se</a>
+                </p>
+
+                <p class="reset">
+                    <a href="{% url 'account_reset_password' %}">Esqueci minha senha</a>
+                </p>
+            </div>
+
+            <div class="social-login">
+                <a href="{% provider_login_url 'google' process='login' %}" class="google-btn">
+                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="google-icon">
+                    <span>Entrar com Google</span>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
