@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="{% static "global/css/style.css" %}">
 </head>
 <body>
-    {% include "global/parciais/nav.html" %}
-    {% include "account/login.html" %}
-    {% include "global/parciais/messages.html" %}
+    <main class="main-index">
+        {% include "global/parciais/nav.html" %}
+        {% include "account/login.html" %}
+        {% include "global/parciais/messages.html" %}
 
-
-    {% block conteudo %}{% endblock  %}
+        {% block conteudo %}{% endblock  %}
+    </main>
+    {% include "global/parciais/footer.html" %}
 
     <script> const updateCartUrl = "{% url 'produto:updatecart' %}";</script>
     <script src="{% static 'global/js/scripts.js' %}"></script>

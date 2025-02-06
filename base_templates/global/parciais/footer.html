@@ -1,0 +1,63 @@
+{% load static %}
+<footer>
+    <div class="footer-top">
+        <img class="payment-img" src="{% static 'global/img/mastercard.png' %}" alt="mastercard">
+        <img class="payment-img" src="{% static 'global/img/visa.png' %}" alt="visa">
+        <img class="payment-img" src="{% static 'global/img/pix.png' %}" alt="pix">
+        <img class="payment-img" src="{% static 'global/img/mercado_pago.png' %}" alt="mercadopago">
+    </div>
+    <div class="container-footer">
+        <div class="row-footer">
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#"> Quem somos </a></li>
+                    <li><a href="#"> Nossos serviços </a></li>
+                    <li><a href="#"> Política de privacidade </a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ajuda</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Status de Pedido</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Top Jogos</h4>
+                <ul>
+                    {% for jogo in jogos %}
+                    <li onclick="redirectToProduct('{{ jogo.id }}')">
+                        <a href="#">{{jogo.nome}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-col">
+
+                <div class="logo-container">
+                    <h3>Logo</h3>
+                    <p>A sua loja de Gamecoins e Serviços!</p>
+                </div>
+                <div class="social-container">
+                    <a href="#">
+                        <img class="social-img" src="{% static 'global/img/wpp-color.svg' %}" alt="whastapp">
+                    </a>
+                    <a href="#">
+                        <img class="social-img" src="{% static 'global/img/discord-color.svg' %}" alt="discord">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-botton">
+        <div>
+            <img class="trust-img" src="{% static 'global/img/goole-safe.webp' %}" alt="trust-site">
+            <img class="trust-img" src="{% static 'global/img/trust-guard.webp' %}" alt="trust-site">
+        </div>
+        <p>
+            Copyright © 2025 - Todos os direitos reservados. 
+        </p>
+    </div>
+</footer>

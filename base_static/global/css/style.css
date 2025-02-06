@@ -52,18 +52,22 @@
     box-sizing: border-box;
   }
   
-  html {
-    font-size: 62.5%;
-  }
-  
-  body {
+
+  body, html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
     Roboto, Oxygen, Ubuntu, Cantarell,
     'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.5;
     background: var(--clr-light-grey);
+    font-size: 62.5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
+.main-index {
+    flex: 1;
+}
 
 /*-----------------------------------------NAV-----------------------------------------*/
 
@@ -667,6 +671,10 @@ nav .menu li a:hover {
     font-weight: bold;
 }
 
+.c-header h2 {
+    font-size: var(--small-font-size);
+}
+
 @media (max-width: 500px) {
     .c-header h1 {
         font-size: var(--medium-font-size);
@@ -944,6 +952,13 @@ nav .menu li a:hover {
 
 .cart-container table tbody {
     text-align: center;
+    font-size: var(--smallest-font-size);
+}
+
+@media (max-width: 600px) {
+    .cart-container table tbody {
+        font-size: var(--even-smallest-font-size);
+    }
 }
 
 .cart-container .btn-update-cart {
@@ -1164,6 +1179,7 @@ nav .menu li a:hover {
     display: flex;
     align-items: center;
     color: var(--clr-white);
+    font-size: var(--smallest-font-size);
   }
 
   .termos-container label a{
@@ -1218,6 +1234,7 @@ nav .menu li a:hover {
 .form-reset ul:not(.errorlist) li {
     list-style: none;
     color: var(--clr-white);
+    font-size: var(--smallest-font-size);
 }
 
 .form-reset ul:not(.errorlist) {
@@ -1329,6 +1346,7 @@ nav .menu li a:hover {
     align-items: center;
     color: var(--clr-white);
     margin-bottom: 15px;
+    font-size: var(--smallest-font-size);
 }
 
 .remember-me input {
@@ -1776,4 +1794,153 @@ nav .menu li a:hover {
 
 .type-filter ul li.active:hover {
     filter: brightness(110%);
+}
+
+/*-------------------------------------FOOTER-----------------------------------------*/
+
+footer {
+    background-color: var(--clr-darker-grey);
+    margin-top: 10px;
+}
+
+.container-footer{
+    max-width: 1400px;
+    padding: 0 4%;
+    margin: auto;
+}
+.row-footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+    font-size: var(--small-font-size);
+    color: var(--clr-dark-orange);
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+}
+.footer-col ul{
+    list-style: none;
+}
+.footer-col ul li{
+    margin: 3px 0;
+}
+.footer-col ul li a{
+    font-size: var(--smaller-font-size);
+    color: var(--clr-white);
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #cecdcd;
+    padding-left: 10px;
+}
+
+@media (max-width: 800px) {
+    .footer-col{
+        width: 50%;
+        margin-bottom: 15px;
+    }
+}
+@media (max-width:600px) {
+    .footer-col{
+        width: 50%;
+    }
+}
+
+.logo-container {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo-container h3 {
+    font-size: var(--medium-font-size);
+    color: var(--clr-dark-orange);
+    font-weight: bold;
+}
+
+.logo-container p {
+    color: var(--clr-white);
+    font-size: var(--smallest-font-size);
+}
+
+.social-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-container img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-botton {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #202020;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-top: 1px solid var(--clr-light-grey);
+    color: rgb(88, 88, 88);
+    margin-top: 10px;
+}
+
+.footer-botton p {
+    display: block;
+    text-align: center;
+    font-size: var(--smallest-font-size);
+}
+
+.footer-botton div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-botton div img {
+    height: 35px;
+    width: auto;
+    border-radius: 3px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: var(--clr-darker-grey);
+    border-bottom: 1px solid var(--clr-light-grey);
+    width: 100%;
+    height: 55px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+@media (max-width:600px) {
+    .footer-top {
+        gap: 8px;
+    }
+}
+
+.payment-img{
+    height: 35px;
+    width: auto;
+}
+
+@media (max-width:600px) {
+    .payment-img {
+        height: 30px;
+        width: auto;
+    }
 }
