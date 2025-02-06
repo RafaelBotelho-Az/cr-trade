@@ -1124,6 +1124,9 @@ nav .menu li a:hover {
 }
 
 .form-group button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
     height: 32px;
     border-style: unset;
@@ -1172,6 +1175,65 @@ nav .menu li a:hover {
     margin-right: 5px;
   }
 
+.form-reset {
+    display: block;
+    padding: 15px;
+}
+
+.form-reset p {
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-white);
+    font-size: var(--smallest-font-size);
+}
+
+.form-reset p input {
+    border-radius: 4px;
+    height: 32px;
+    border-style: unset;
+    padding: 5px;
+    background-color: rgb(180, 180, 180);
+    margin-bottom: 15px;
+}
+
+.form-reset button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    height: 32px;
+    width: 100%;
+    border-style: unset;
+    color: var(--clr-white);
+    background-color: var(--clr-dark-orange);
+    font-size: var(--small-font-size);
+    font-weight: bold;
+}
+
+.form-reset button:hover {
+    cursor: pointer;
+    filter: brightness(110%);
+}
+
+.form-reset ul:not(.errorlist) li {
+    list-style: none;
+    color: var(--clr-white);
+}
+
+.form-reset ul:not(.errorlist) {
+    margin: 5px 0 20px 0;
+}
+
+.reset-info {
+    padding: 15px;
+    font-size: var(--smallest-font-size);
+    color: var(--clr-white);
+}
+
+.reset-info a {
+    text-decoration: none;
+    color: var(--clr-dark-orange);
+}
 /*------------------------------------LOGIN MODAL--------------------------------------*/
 
 .modal {
