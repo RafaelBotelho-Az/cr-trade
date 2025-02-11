@@ -11,15 +11,15 @@
             <div class="footer-col">
                 <h4>Empresa</h4>
                 <ul>
-                    <li><a href="#"> Quem somos </a></li>
-                    <li><a href="#"> Nossos serviços </a></li>
-                    <li><a href="#"> Política de privacidade </a></li>
+                    <li><a href="{% url "produto:static_view" pagina="sobre" %}"> Quem somos </a></li>
+                    <li><a href="{% url "produto:static_view" pagina="venda-para-nos" %}"> Venda para nós </a></li>
+                    <li><a href="{% url "produto:static_view" pagina="politica-de-privacidade" %}"> Política de privacidade </a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Ajuda</h4>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="{% url "produto:static_view" pagina="faq" %}">FAQ</a></li>
                     <li><a href="#">Status de Pedido</a></li>
                 </ul>
             </div>

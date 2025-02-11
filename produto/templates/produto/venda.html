@@ -1,0 +1,27 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block conteudo %}
+<section class="page-container">
+    <div class="block-widget">
+        <h2>Venda para Nós</h2>
+        <p>
+            Compramos suas gamecoins com o melhor ratio do mercado, basta entrar em contato com 
+            uma breve descrição, quantidade e jogo que deseja fazer a venda. Nossa equipe estará 
+            sempre de prontidão para atender e negociar de maneira rápida e segura.
+        </p>
+        <p>
+            <a href="">
+                <img class="social-img" src="{% static 'global/img/wpp-color.svg' %}" alt="whastapp">
+                WhatsApp
+            </a>
+        </p>
+        <p>
+            <a href="">
+                <img class="social-img" src="{% static 'global/img/discord-color.svg' %}" alt="discord">
+                Discord
+            </a>
+        </p>
+    </div>
+
+</section>
+{% endblock  %}

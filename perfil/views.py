@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from allauth.account.views import LoginView
 from .forms import RegisterForm
-from produto.models import Categoria
 from django.urls import reverse
+from produto.models import Categoria
+from pedido.models import Pedido
 
 
 class MyLoginView(LoginView):
@@ -41,3 +44,22 @@ def createUser(request):
 def logoutView(request):
     auth.logout(request)
     return redirect('produto:index')
+
+
+@login_required(login_url='/')
+def meus_pedidos(request):
+    pedidos = Pedido.objects.filter(usuario=request.user).select_related('usuario').prefetch_related('itens').order_by('-criado_em')
+
+    return render(request, 'perfil/meus-pedidos.html', {'pedidos': pedidos})
+
+@login_required
+def cancelar_pedido(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id=pedido_id, usuario=request.user)
+
+    if pedido.status in ['P', 'C']:
+        pedido.delete()
+        messages.success(request, "Pedido Cancelado com sucesso.")
+    else:
+        messages.error(request, "Este pedido não pode ser Cancelado.")
+
+    return redirect('perfil:meus_pedidos')

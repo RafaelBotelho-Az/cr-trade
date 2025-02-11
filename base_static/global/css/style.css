@@ -1944,3 +1944,239 @@ footer {
         width: auto;
     }
 }
+
+
+/*-------------------------------------STATIC VIEW-----------------------------------------*/
+
+
+.page-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 145px auto 40px auto;
+    padding: 20px;
+    background: var(--clr-darker-grey);
+    border-radius: 8px;
+    text-align:left;
+}
+
+@media (max-width:600px){
+    .page-container{
+        width: 95%;
+        padding: 10px;
+    }
+}
+
+@media (max-width:500px){
+    .page-container{
+        width: 95%;
+        padding: 5px;
+    }
+}
+
+.block-widget img {
+    height: 50px;
+    width: auto;
+}
+
+.block-widget a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    width: 150px;
+}
+
+.block-widget h1 {
+    font-size: var(--big-font-size);
+    color: var(--clr-dark-orange);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width:600px){
+    .block-widget h1 {
+        font-size: var(--medium-font-size);
+    }
+}
+
+.block-widget h2 {
+    font-size: var(--medium-font-size);
+    color: var(--clr-dark-orange);
+    margin-top: 20px;
+}
+
+@media (max-width:600px){
+    .block-widget h2 {
+        font-size: var(--small-font-size);
+    }
+}
+
+.block-widget h3 {
+    font-size: var(--small-font-size);
+    color: var(--clr-dark-orange);
+    margin-top: 15px;
+}
+
+@media (max-width:600px){
+    .block-widget h3 {
+        font-size: var(--smaller-font-size);
+    }
+}
+
+.block-widget p {
+    font-size: var(--small-font-size);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--clr-white);
+}
+
+@media (max-width:600px){
+    .block-widget p {
+        font-size: var(--smaller-font-size);
+    }
+}
+
+.block-widget ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.block-widget ul li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-size: var(--small-font-size);
+    color: var(--clr-white);
+}
+
+@media (max-width:600px){
+    .block-widget ul li {
+        font-size: var(--smaller-font-size);
+    }
+}
+
+.block-widget a {
+    color: var(--clr-dark-orange);
+    text-decoration: none;
+}
+
+.block-widget a:hover:not(.delete-btn) {
+    text-decoration: underline;
+}
+
+/*-------------------------------------MEUS PEDIDOS-----------------------------------------*/
+
+.block-widget .pedidos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--clr-darker-grey);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.block-widget .pedidos-table thead {
+    background: var(--clr-darker-grey);
+    color: var(--clr-white);
+    border-bottom: 2px solid var(--clr-medium-grey);
+    text-align: center;
+}
+
+.block-widget .pedidos-table thead th {
+    padding: 3px;
+    font-size: var(--small-font-size);
+    text-transform: uppercase;
+}
+
+.block-widget .pedidos-table tbody tr {
+    border-bottom: 2px solid var(--clr-medium-grey);
+}
+
+.block-widget .pedidos-table tbody td {
+    padding: 7px 3px;
+    text-align: center;
+    font-size: var(--smaller-font-size);
+    color: var(--clr-white);
+}
+
+@media (max-width:800px){
+    .block-widget .pedidos-table thead th {
+        font-size: var(--smaller-font-size);
+    }
+    .block-widget .pedidos-table tbody td {
+        font-size: var(--smallest-font-size);
+    }
+}
+
+@media (max-width:500px){
+    .block-widget .pedidos-table thead th {
+        font-size: var(--smallest-font-size);
+    }
+    .block-widget .pedidos-table tbody td {
+        font-size: var(--even-smallest-font-size);
+    }
+    .pedidos-table .delete-bt1 {
+        font-size: var(--even-smallest-font-size);
+    }
+}
+
+.dropdown-btn {
+    background-color: var(--clr-dark-orange);
+    color: var(--clr-white);
+    height: 35px;
+    width: 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: var(--smaller-font-size);
+}
+
+.dropdown-btn:hover {
+    filter: brightness(120%);
+}
+
+.hidden {
+    display: none;
+}
+
+.dropdown-content {
+    background-color: var(--clr-medium-grey);
+    border-left: 3px solid var(--clr-light-orange);
+}
+
+.dropdown-content ul {
+    padding: 10px;
+    list-style: none;
+}
+
+.dropdown-content ul li {
+    padding: 5px 0;
+    font-size: var(--smallest-font-size);
+    color: var(--clr-white);
+}
+
+.pedidos-table .pedido-img{
+    width: auto;
+    height: 35px;
+}
+
+.pedidos-table .delete-btn {
+    background-color:rgb(255, 74, 74);
+    border: none;
+    padding: 5px 5px;
+    border-radius: 4px;
+    font-size: var(--smaller-font-size);
+    width: auto;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.pedidos-table .delete-btn:hover {
+    filter: brightness(120%);
+}
+
+.pedidos-table .delete-bt1 {
+    color: var(--clr-white);
+    margin: 0;
+    text-decoration: none;
+}

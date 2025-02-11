@@ -24,7 +24,7 @@
                     <p>{{user.email}}</p>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{% url "perfil:meus_pedidos" %}">
                         <img src="{% static "global/img/order.svg" %}" alt="order-icon" class="drop-icon">
                         Meus Pedidos
                     </a>
@@ -86,7 +86,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{% url "produto:static_view" pagina="venda-para-nos" %}">
                 <img class="menu-img" src="{% static 'global/img/cart2.svg' %}" alt="cart">
                 Venda para nós!
                 </a>

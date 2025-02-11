@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views import View
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from .models import Produto, Categoria
 
 
@@ -148,3 +148,18 @@ class Cart(View):
                 'jogos': jogos
                 }
         )
+
+
+def static_view(request, pagina):
+    templates_disponiveis = {
+        "sobre": "produto/sobre.html",
+        "venda-para-nos": "produto/venda.html",
+        "politica-de-privacidade": "produto/politica.html",
+        "faq": "produto/faq.html",
+    }
+
+    template = templates_disponiveis.get(pagina)
+    if not template:
+        raise Http404("Página não encontrada")
+
+    return render(request, template)

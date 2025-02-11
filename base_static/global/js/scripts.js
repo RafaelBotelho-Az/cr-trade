@@ -146,3 +146,10 @@ function scrollCarousel(direction) {
 function redirectToProduct(jogoId) {
     window.location.href = `/lista/${jogoId}/`;
 }
+
+// Dropdown perfil/meus-pedidos
+
+function toggleDropdown(id) {
+    var element = document.getElementById(id);
+    element.classList.toggle('hidden');
+}

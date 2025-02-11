@@ -22,7 +22,8 @@ def criar_pedido(request):
     pedido = Pedido.objects.create(
         usuario=request.user,
         numero=numero_pedido,
-        total=0
+        total=0,
+        status='P'
     )
 
     total_pedido = 0

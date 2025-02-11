@@ -9,7 +9,7 @@ class PedidoAdmin(admin.ModelAdmin):
     inlines = [
         ItemPedidoInline
     ]
-    list_display = 'numero', 'status', 'criado_em', 'total'
+    list_display = 'numero', 'status', 'criado_em', 'total', 'usuario'
 
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(ItemPedido)
