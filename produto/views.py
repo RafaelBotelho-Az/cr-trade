@@ -156,6 +156,7 @@ def static_view(request, pagina):
         "venda-para-nos": "produto/venda.html",
         "politica-de-privacidade": "produto/politica.html",
         "faq": "produto/faq.html",
+        "contato": "produto/contato.html",
     }
 
     template = templates_disponiveis.get(pagina)

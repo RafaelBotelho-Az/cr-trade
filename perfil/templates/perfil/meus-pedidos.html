@@ -37,9 +37,14 @@
                         </tr>
                         <tr id="pedido-{{ pedido.id }}" class="dropdown-content hidden">
                             <td colspan="6">
-                                <ul>
+                                <ul style="margin:0">
                                     {% for item in pedido.itens.all %}
-                                        <li>{{ item.produto.nome }} - {{ item.quantidade }}x (R$ {{ item.preco }})</li>
+                                        <li class="item-c"> 
+                                            <img src="{{item.imagem}}" alt="produto-img">
+                                            <p class="item-p">
+                                                {{ item.produto.nome }} - {{ item.quantidade }}x - R$ {{ item.preco }}
+                                            </p>
+                                        </li>
                                     {% endfor %}
                                 </ul>
                             </td>
